@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jivika Solar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Jivika Solar</h1>
+    <div class="tab-navigation">
+      <button class="tab-btn active" data-page="entry">Data Entry</button>
+      <button class="tab-btn" data-page="view">View Data</button>
+    </div>
+  </div>
+
+  <div class="page-container">
+    <!-- Data Entry Page -->
+    <div id="entry-page" class="page active">
+      <div class="container">
+        <h2>New Solar Data Entry</h2>
+        <form id="solarForm">
+          <div class="row">
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" name="date">
+            </div>
+          <div class="row">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" name="name">
+            </div>
+            <div class="form-group">
+              <label>Mobile No</label>
+              <input type="tel" name="mobile">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" name="address">
+            </div>
+            <div class="form-group">
+              <label>Account No</label>
+              <input type="text" name="account">
+            </div>
+          </div>
+          
+            <div class="form-group">
+              <label>Solar Meter</label>
+              <input type="text" name="solarMeter">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="form-group">
+              <label>Net Meter</label>
+              <input type="text" name="netMeter">
+            </div>
+            <div class="form-group">
+              <label>KWH+</label>
+              <input type="number" name="kwhPlus">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="form-group">
+              <label>KWH-</label>
+              <input type="number" name="kwhMinus">
+            </div>
+            <div class="form-group">
+              <label>KVA+</label>
+              <input type="number" name="kvaPlus">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="form-group">
+              <label>KVA-</label>
+              <input type="number" name="kvaMinus">
+            </div>
+            <div class="form-group">
+              <label>KW+</label>
+              <input type="number" name="kwPlus">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="form-group">
+              <label>KW-</label>
+              <input type="number" name="kwMinus">
+            </div>
+            <div class="form-group">
+              <label>KW</label>
+              <input type="number" name="kw">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="form-group">
+              <label>KHW</label>
+              <input type="number" name="khw">
+            </div>
+          </div>
+          
+          <div class="button-bar">
+            <button type="submit" class="btn primary">Submit Data</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- View Data Page -->
+    <div id="view-page" class="page">
+      <div class="container">
+        <h2>Submitted Solar Data</h2>
+        <div class="button-bar">
+          <button type="button" class="btn" onclick="downloadExcel()">Download Excel</button>
+          <button type="button" class="btn" onclick="exportJSON()">Export JSON</button>
+          <button type="button" class="btn" onclick="printTable()">Print Data</button>
+          <label for="importJson" class="btn import-btn">
+            Import JSON
+            <input type="file" id="importJson" accept="application/json" class="file-input" />
+          </label>
+          <button type="button" class="btn danger" onclick="clearData()">Clear All Data</button>
+        </div>
+        <div class="table-container">
+          <table id="dataTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+          <div id="no-data-message" class="no-data">No data available. Please enter data on the Data Entry page.</div>
+        </div>
+      </div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
